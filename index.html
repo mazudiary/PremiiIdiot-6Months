@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enter Password</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/index.css">
+<meta name="description" content="Password protected page for my Premii. Enter the special code number to unlock the love-filled anniversary page.">
+<meta name="keywords" content="password protected, love page, anniversary, special code, romantic page">
+<meta name="author" content="Your Mazu, Your 20026">
+
+</head>
+
+<body>
+
+<div class="falling-hearts" id="fallingHearts"></div>
+
+<div class="heart-decoration heart-1">💕</div>
+<div class="heart-decoration heart-2">💖</div>
+<div class="heart-decoration heart-3">💕</div>
+<div class="heart-decoration heart-4">💖</div>
+
+<div class="container">
+    <h2>💖 Enter Password to Continue 💖</h2>
+    <p>Only for my Premii 😘💖</p>
+
+    <div class="input-wrapper">
+        <div class="password-wrapper">
+            <input type="password" id="pass" placeholder="Enter password" onkeypress="if(event.key==='Enter') checkPass()">
+            <span class="toggle-password" onclick="togglePassword()" id="toggleIcon">👁️</span>
+        </div>
+        <div class="hint">💡 Hint: Your code number which is your name</div>
+    </div>
+    <button onclick="checkPass()">✨ Unlock ✨</button>
+
+    <div class="error" id="error"></div>
+    
+    <div class="love-message">
+        "Every password I set is a reminder that you're the key to my heart 💝"
+    </div>
+</div>
+
+<!-- Custom Modal Popup -->
+<div id="errorModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-icon">😢💔</div>
+        <div class="modal-title">Oops, My Premii!</div>
+        <div class="modal-message">
+            That's not the right password, my love. 💕<br>
+            Think about your special code number... the one that's also your name! 💖
+        </div>
+        <button class="modal-close" onclick="closeModal()">Try Again 💕</button>
+    </div>
+</div>
+
+<script src="assets/js/index.js"></script>
+
+</body>
+</html>
