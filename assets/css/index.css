@@ -1,0 +1,435 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #1a0d1f 0%, #0d0d0f 50%, #1f0d1a 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 10s ease infinite;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    /* Floating hearts background */
+    body::before {
+        content: "💕";
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        font-size: 40px;
+        opacity: 0.1;
+        animation: float 6s infinite ease-in-out;
+    }
+
+    body::after {
+        content: "💖";
+        position: absolute;
+        bottom: 20%;
+        right: 15%;
+        font-size: 50px;
+        opacity: 0.1;
+        animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    .container {
+        background: linear-gradient(135deg, #1a0d1f, #0f0a15);
+        padding: 50px 60px;
+        border-radius: 30px;
+        box-shadow: 0 0 50px #ff70c4aa, inset 0 0 50px #ff70c422;
+        border: 3px solid #ff9cd844;
+        animation: containerGlow 3s infinite;
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes containerGlow {
+        0%, 100% { box-shadow: 0 0 50px #ff70c4aa, inset 0 0 50px #ff70c422; }
+        50% { box-shadow: 0 0 80px #ff70c4ff, inset 0 0 80px #ff70c444; }
+    }
+
+    h2 {
+        font-size: 36px;
+        color: #ff9cd8;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-shadow: 0 0 20px #ff70c477;
+        animation: titlePulse 2s infinite;
+    }
+
+    @keyframes titlePulse {
+        0%, 100% { text-shadow: 0 0 20px #ff70c477; }
+        50% { text-shadow: 0 0 30px #ff70c4ff; }
+    }
+
+    p {
+        font-size: 20px;
+        color: #ffb3e6;
+        margin-bottom: 30px;
+        font-weight: 400;
+        text-shadow: 0 0 10px #ff70c433;
+    }
+
+    .input-wrapper {
+        position: relative;
+        margin-bottom: 25px;
+    }
+
+    input {
+        padding: 15px 25px;
+        border-radius: 15px;
+        border: 2px solid #ff70c466;
+        outline: none;
+        width: 280px;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    input:focus {
+        border-color: #ff70c4;
+        box-shadow: 0 0 25px #ff70c477, 0 5px 20px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+    }
+
+    input::placeholder {
+        color: #999;
+    }
+
+    button {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(135deg, #ff70c4, #ff9cd8);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px #ff70c477;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    button:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px #ff70c4ff;
+    }
+
+    button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px #ff70c477;
+    }
+
+    .error {
+        color: #ff70c4;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        text-shadow: 0 0 10px #ff70c466;
+        animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+    }
+
+    .heart-decoration {
+        position: absolute;
+        font-size: 20px;
+        animation: heartFloat 4s infinite ease-in-out;
+        opacity: 0.3;
+    }
+
+    .heart-1 { top: 10%; left: 10%; animation-delay: 0s; }
+    .heart-2 { top: 15%; right: 12%; animation-delay: 1s; }
+    .heart-3 { bottom: 15%; left: 8%; animation-delay: 2s; }
+    .heart-4 { bottom: 10%; right: 10%; animation-delay: 1.5s; }
+
+    @keyframes heartFloat {
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+        50% { transform: translateY(-15px) scale(1.1); opacity: 0.5; }
+    }
+
+    /* Falling hearts animation */
+    .falling-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .falling-heart {
+        position: absolute;
+        top: -50px;
+        font-size: 20px;
+        opacity: 0;
+        animation: fall 8s linear infinite;
+    }
+
+    @keyframes fall {
+        0% { top: -50px; opacity: 0; transform: translateX(0) rotate(0deg); }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { top: 100vh; opacity: 0; transform: translateX(30px) rotate(360deg); }
+    }
+
+    .love-message {
+        margin-top: 30px;
+        font-size: 16px;
+        color: #ffb3e6;
+        font-style: italic;
+        text-shadow: 0 0 10px #ff70c433;
+        animation: fadeIn 3s ease;
+        max-width: 300px;
+        line-height: 1.6;
+    }
+
+    .password-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 20px;
+        user-select: none;
+        transition: transform 0.2s ease;
+    }
+
+    .toggle-password:hover {
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    .hint {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #ff9cd8;
+        font-style: italic;
+        text-shadow: 0 0 10px #ff70c433;
+        opacity: 0.8;
+    }
+
+    /* Modal Popup */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        animation: fadeInModal 0.3s ease;
+    }
+
+    @keyframes fadeInModal {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .modal-content {
+        position: relative;
+        background: linear-gradient(135deg, #1a0d1f, #0f0a15);
+        margin: 15% auto;
+        padding: 40px;
+        border: 3px solid #ff70c4;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 450px;
+        box-shadow: 0 0 50px #ff70c4aa, inset 0 0 50px #ff70c422;
+        animation: slideDown 0.4s ease;
+        text-align: center;
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-icon {
+        font-size: 60px;
+        margin-bottom: 20px;
+        animation: shake 0.5s ease;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+    }
+
+    .modal-title {
+        font-size: 28px;
+        color: #ff70c4;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-shadow: 0 0 20px #ff70c477;
+    }
+
+    .modal-message {
+        font-size: 18px;
+        color: #ffb3e6;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .modal-close {
+        background: linear-gradient(135deg, #ff70c4, #ff9cd8);
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px #ff70c477;
+    }
+
+    .modal-close:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px #ff70c4ff;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 2rem 1.5rem;
+            max-width: 95%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group input {
+            font-size: 1rem;
+            padding: 0.9rem;
+        }
+
+        .toggle-password {
+            font-size: 1.3rem;
+            right: 12px;
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            margin-top: 0.6rem;
+        }
+
+        button {
+            padding: 0.9rem;
+            font-size: 1rem;
+        }
+
+        .heart-decoration {
+            font-size: 2rem;
+        }
+
+        .modal-content {
+            width: 90%;
+            padding: 2rem 1.5rem;
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+        }
+
+        .modal-message {
+            font-size: 0.95rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 1.5rem 1rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+        }
+
+        .heart-decoration {
+            display: none;
+        }
+
+        .modal-content {
+            padding: 1.5rem 1rem;
+        }
+    }
